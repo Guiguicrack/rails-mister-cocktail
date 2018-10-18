@@ -1,0 +1,8 @@
+<div class='container'>
+  <h1>Ajoutez un ingrédient au cocktail <%= @cocktail.name %></h1>
+  <%= simple_form_for [@cocktail, @dose] do |f| %>
+    <%= f.association :ingredient, collection: Ingredient.all.order('name ASC'), prompt: "Choose an ingredient" %>
+    <%= f.input :description %>
+    <%= f.submit "Add", class: "btn btn-primary" %>
+  <% end %>
+</div>
